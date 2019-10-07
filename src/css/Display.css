@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=Display.css.map */
+.Display {
+  background-color: #854e4e;
+  color: white;
+  height: 80px;
+  padding: 10px 20px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 46px;
+}
+/*# sourceMappingURL=Display.css.map */
