@@ -4,12 +4,12 @@ import Display from './Display';
 
 class App extends React.Component {
   state = {
-
+    display: "42509",
   }
   render() {
     return (
       <div className="App">
-        <Display />
+        <Display display={this.state.display} />
       </div>
     );
   }

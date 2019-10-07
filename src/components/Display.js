@@ -1,11 +1,11 @@
 import React from 'react';
 import '../css/Display.css';
 
-function Display() {
+function Display(props) {
     return (
         <div className="Display">
-            01178
-    </div>
+            {props.display}
+        </div>
     );
 }
 
