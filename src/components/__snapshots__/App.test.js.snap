@@ -16,14 +16,21 @@ exports[`renders a App snapshot 1`] = `
       className="Button"
     >
       <button>
-        button
+        1
       </button>
     </div>
     <div
       className="Button"
     >
       <button>
-        button
+        2
+      </button>
+    </div>
+    <div
+      className="Button"
+    >
+      <button>
+        3
       </button>
     </div>
   </div>

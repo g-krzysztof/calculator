@@ -12,8 +12,9 @@ class App extends React.Component {
       <div className="App">
         <Display display={this.state.display} />
         <div className="buttons-wrapper">
-          <Button />
-          <Button />
+          <Button name="1" />
+          <Button name="2" />
+          <Button name="3" />
         </div>
       </div>
     );
