@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/App.css';
 import Display from './Display';
+import Button from './Button';
 
 class App extends React.Component {
   state = {
@@ -10,6 +11,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <Display display={this.state.display} />
+        <div className="buttons-wrapper">
+          <Button />
+        </div>
       </div>
     );
   }
