@@ -13,6 +13,7 @@ class App extends React.Component {
         <Display display={this.state.display} />
         <div className="buttons-wrapper">
           <Button />
+          <Button />
         </div>
       </div>
     );
