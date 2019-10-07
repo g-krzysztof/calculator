@@ -5,18 +5,40 @@ import Button from './Button';
 
 class App extends React.Component {
   state = {
-    display: "42509",
+    display: "0",
+    secondDisplay: "",
+    math: "",
   }
+
+  handleClick = (e) => {
+
+    let number = parseFloat(e.target.value);
+    let pattern = new RegExp("^[0-9]$");
+    let result = pattern.test(number);
+
+    if (result) {
+      if (this.state.display === "0") {
+        this.setState({
+          display: number
+        })
+      } else {
+        this.setState(prevState => ({
+          display: prevState.display + number.toString()
+        }))
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Display display={this.state.display} />
         <div className="buttons-wrapper">
-          <Button name="1" />
-          <Button name="2" />
-          <Button name="3" />
-          <Button name="+" />
-          <Button name="=" />
+          <Button name="1" onClick={this.handleClick} />
+          <Button name="2" onClick={this.handleClick} />
+          <Button name="3" onClick={this.handleClick} />
+          <Button name="+" onClick={this.handleClick} />
+          <Button name="=" onClick={this.handleClick} />
         </div>
       </div>
     );
