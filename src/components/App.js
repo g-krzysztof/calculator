@@ -15,6 +15,8 @@ class App extends React.Component {
           <Button name="1" />
           <Button name="2" />
           <Button name="3" />
+          <Button name="+" />
+          <Button name="=" />
         </div>
       </div>
     );
