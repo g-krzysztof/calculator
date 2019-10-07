@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   handleClick = (e) => {
-
+    let value = e.target.value;
     let number = parseFloat(e.target.value);
     let pattern = new RegExp("^[0-9]$");
     let result = pattern.test(number);
@@ -26,6 +26,12 @@ class App extends React.Component {
           display: prevState.display + number.toString()
         }))
       }
+    } else {
+      this.setState(prevState => ({
+        display: "0",
+        secondDisplay: prevState.display,
+        math: value
+      }))
     }
   }
 
