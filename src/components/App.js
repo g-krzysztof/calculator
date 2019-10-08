@@ -27,11 +27,21 @@ class App extends React.Component {
         }))
       }
     } else {
-      this.setState(prevState => ({
-        display: "0",
-        secondDisplay: prevState.display,
-        math: value
-      }))
+      if (this.state.math === "") {
+        this.setState(prevState => ({
+          display: "0",
+          secondDisplay: prevState.display,
+          math: value
+        }))
+      }
+      if (this.state.math.length === 1) {
+        this.setState(prevState => ({
+          display: parseFloat(prevState.secondDisplay) + parseFloat(prevState.display),
+          secondDisplay: "",
+          math: ""
+        }))
+
+      }
     }
   }
 
