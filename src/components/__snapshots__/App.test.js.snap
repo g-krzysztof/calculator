@@ -7,7 +7,7 @@ exports[`renders a App snapshot 1`] = `
   <div
     className="Display"
   >
-    42509
+    0
   </div>
   <div
     className="buttons-wrapper"
@@ -15,22 +15,51 @@ exports[`renders a App snapshot 1`] = `
     <div
       className="Button"
     >
-      <button>
+      <button
+        onClick={[Function]}
+        value="1"
+      >
         1
       </button>
     </div>
     <div
       className="Button"
     >
-      <button>
+      <button
+        onClick={[Function]}
+        value="2"
+      >
         2
       </button>
     </div>
     <div
       className="Button"
     >
-      <button>
+      <button
+        onClick={[Function]}
+        value="3"
+      >
         3
+      </button>
+    </div>
+    <div
+      className="Button"
+    >
+      <button
+        onClick={[Function]}
+        value="+"
+      >
+        +
+      </button>
+    </div>
+    <div
+      className="Button"
+    >
+      <button
+        onClick={[Function]}
+        value="="
+      >
+        =
       </button>
     </div>
   </div>

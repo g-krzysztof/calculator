@@ -4,7 +4,9 @@ exports[`renders a Button snapshot 1`] = `
 <div
   className="Button"
 >
-  <button>
+  <button
+    value={1}
+  >
     1
   </button>
 </div>
