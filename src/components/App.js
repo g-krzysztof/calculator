@@ -60,12 +60,12 @@ class App extends React.Component {
           <Button name="8" onClick={this.handleClick} />
           <Button name="9" onClick={this.handleClick} />
           <Button name="0" onClick={this.handleClick} />
-          <Button name="+" onClick={this.handleClick} />
-          <Button name="-" onClick={this.handleClick} />
-          <Button name="/" onClick={this.handleClick} />
-          <Button name="*" onClick={this.handleClick} />
           <Button name="clear" onClick={this.handleClick} />
           <Button name="=" onClick={this.handleClick} />
+          <Button name="+" onClick={this.handleClick} />
+          <Button name="-" onClick={this.handleClick} />
+          <Button name="*" onClick={this.handleClick} />
+          <Button name="/" onClick={this.handleClick} />
         </div>
       </div>
     );
