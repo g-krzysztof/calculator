@@ -8,59 +8,50 @@ class App extends React.Component {
     display: "0",
     secondDisplay: "",
     math: "",
+    showResult: false
   }
 
-  handleClick = (e) => {
-    let value = e.target.value;
+  handleNumber = (e) => {
+
     let number = parseFloat(e.target.value);
-    let pattern = new RegExp("^[0-9]$");
-    let result = pattern.test(number);
 
-    if (result) {
-      if (this.state.display === "0") {
-        this.setState({
-          display: number
-        })
-      } else {
-        this.setState(prevState => ({
-          display: prevState.display + number.toString()
-        }))
-      }
+    if (this.state.display === "0") {
+      this.setState({
+        display: number
+      })
     } else {
-      if (this.state.math === "") {
-        this.setState(prevState => ({
-          display: "0",
-          secondDisplay: prevState.display,
-          math: value
-        }))
-      }
-      if (this.state.math.length === 1) {
-        this.setState(prevState => ({
-          display: parseFloat(prevState.secondDisplay) + parseFloat(prevState.display),
-          secondDisplay: "",
-          math: ""
-        }))
-
-      }
+      this.setState(prevState => ({
+        display: prevState.display + number.toString()
+      }))
     }
+
   }
+
+  handleClear = () => {
+    this.setState({
+      display: "0",
+      secondDisplay: "",
+      math: "",
+      showResult: false
+    })
+  };
 
   render() {
     return (
       <div className="App">
         <Display display={this.state.display} />
         <div className="buttons-wrapper">
-          <Button name="1" onClick={this.handleClick} />
-          <Button name="2" onClick={this.handleClick} />
-          <Button name="3" onClick={this.handleClick} />
-          <Button name="4" onClick={this.handleClick} />
-          <Button name="5" onClick={this.handleClick} />
-          <Button name="6" onClick={this.handleClick} />
-          <Button name="7" onClick={this.handleClick} />
-          <Button name="8" onClick={this.handleClick} />
-          <Button name="9" onClick={this.handleClick} />
-          <Button name="0" onClick={this.handleClick} />
-          <Button name="clear" onClick={this.handleClick} />
+          <Button name="1" onClick={this.handleNumber} />
+          <Button name="2" onClick={this.handleNumber} />
+          <Button name="3" onClick={this.handleNumber} />
+          <Button name="4" onClick={this.handleNumber} />
+          <Button name="5" onClick={this.handleNumber} />
+          <Button name="6" onClick={this.handleNumber} />
+          <Button name="7" onClick={this.handleNumber} />
+          <Button name="8" onClick={this.handleNumber} />
+          <Button name="9" onClick={this.handleNumber} />
+          <Button name="0" onClick={this.handleNumber} />
+          <Button name="clear" onClick={this.handleClear} />
           <Button name="=" onClick={this.handleClick} />
           <Button name="+" onClick={this.handleClick} />
           <Button name="-" onClick={this.handleClick} />
