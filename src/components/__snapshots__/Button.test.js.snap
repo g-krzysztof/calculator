@@ -5,6 +5,7 @@ exports[`renders a Button snapshot 1`] = `
   className="Button"
 >
   <button
+    className="Button__btn"
     value={1}
   >
     1
