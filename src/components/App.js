@@ -24,7 +24,17 @@ class App extends React.Component {
         display: prevState.display + number.toString()
       }))
     }
+  }
 
+  handleZero = (e) => {
+    let number = parseFloat(e.target.value);
+    if (this.state.display === "0" || this.state.display === 0) {
+      return
+    } else {
+      this.setState(prevState => ({
+        display: prevState.display + number.toString()
+      }))
+    }
   }
 
   handleClear = () => {
@@ -50,7 +60,7 @@ class App extends React.Component {
           <Button name="7" onClick={this.handleNumber} />
           <Button name="8" onClick={this.handleNumber} />
           <Button name="9" onClick={this.handleNumber} />
-          <Button name="0" onClick={this.handleNumber} />
+          <Button name="0" onClick={this.handleZero} />
           <Button name="clear" onClick={this.handleClear} />
           <Button name="=" onClick={this.handleClick} />
           <Button name="+" onClick={this.handleClick} />
