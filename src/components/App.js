@@ -46,30 +46,73 @@ class App extends React.Component {
     })
   };
 
+  handleMath = (e) => {
+    this.setState(prevState => ({
+      display: "0",
+      secondDisplay: prevState.display,
+      math: "+",
+    }))
+  }
+
+  handleScore = () => {
+    if (this.state.math.length > 0) {
+      this.setState(prevState => ({
+        display: parseFloat(prevState.display) + parseFloat(prevState.secondDisplay),
+        showResult: true,
+      }))
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <Display display={this.state.display} />
-        <div className="buttons-wrapper">
-          <Button name="1" onClick={this.handleNumber} />
-          <Button name="2" onClick={this.handleNumber} />
-          <Button name="3" onClick={this.handleNumber} />
-          <Button name="4" onClick={this.handleNumber} />
-          <Button name="5" onClick={this.handleNumber} />
-          <Button name="6" onClick={this.handleNumber} />
-          <Button name="7" onClick={this.handleNumber} />
-          <Button name="8" onClick={this.handleNumber} />
-          <Button name="9" onClick={this.handleNumber} />
-          <Button name="0" onClick={this.handleZero} />
-          <Button name="clear" onClick={this.handleClear} />
-          <Button name="=" onClick={this.handleClick} />
-          <Button name="+" onClick={this.handleClick} />
-          <Button name="-" onClick={this.handleClick} />
-          <Button name="*" onClick={this.handleClick} />
-          <Button name="/" onClick={this.handleClick} />
+    if (this.state.showResult === false) {
+      return (
+        <div className="App">
+          <Display display={this.state.display} />
+          <div className="buttons-wrapper">
+            <Button name="1" onClick={this.handleNumber} />
+            <Button name="2" onClick={this.handleNumber} />
+            <Button name="3" onClick={this.handleNumber} />
+            <Button name="4" onClick={this.handleNumber} />
+            <Button name="5" onClick={this.handleNumber} />
+            <Button name="6" onClick={this.handleNumber} />
+            <Button name="7" onClick={this.handleNumber} />
+            <Button name="8" onClick={this.handleNumber} />
+            <Button name="9" onClick={this.handleNumber} />
+            <Button name="0" onClick={this.handleZero} />
+            <Button name="clear" onClick={this.handleClear} />
+            <Button name="=" onClick={this.handleScore} />
+            <Button name="+" onClick={this.handleMath} />
+            <Button name="-" onClick={this.handleMath} />
+            <Button name="*" onClick={this.handleMath} />
+            <Button name="/" onClick={this.handleMath} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="App">
+          <Display display={this.state.display} />
+          <div className="buttons-wrapper">
+            <Button name="1" onClick={this.handleClear} />
+            <Button name="2" onClick={this.handleClear} />
+            <Button name="3" onClick={this.handleClear} />
+            <Button name="4" onClick={this.handleClear} />
+            <Button name="5" onClick={this.handleClear} />
+            <Button name="6" onClick={this.handleClear} />
+            <Button name="7" onClick={this.handleClear} />
+            <Button name="8" onClick={this.handleClear} />
+            <Button name="9" onClick={this.handleClear} />
+            <Button name="0" onClick={this.handleClear} />
+            <Button name="clear" onClick={this.handleClear} />
+            <Button name="=" onClick={this.handleClear} />
+            <Button name="+" onClick={this.handleClear} />
+            <Button name="-" onClick={this.handleClear} />
+            <Button name="*" onClick={this.handleClear} />
+            <Button name="/" onClick={this.handleClear} />
+          </div>
+        </div>
+      );
+    }
   }
 }
 
