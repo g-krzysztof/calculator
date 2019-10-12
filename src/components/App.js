@@ -60,10 +60,16 @@ class App extends React.Component {
     }))
   }
 
+  round = (n, k) => {
+    var factor = Math.pow(10, k + 1);
+    n = Math.round(Math.round(n * factor) / 10);
+    return n / (factor / 10);
+  }
+
   handleScore = () => {
     if (this.state.math.length > 0) {
       this.setState(prevState => ({
-        display: prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)),
+        display: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
         showResult: true,
       }))
     }
