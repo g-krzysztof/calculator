@@ -47,10 +47,15 @@ class App extends React.Component {
   };
 
   handleMath = (e) => {
+    let math;
+    if (e.target.value === "+") { math = (a, b) => { return a + b } }
+    if (e.target.value === "-") { math = (a, b) => { return b - a } }
+    if (e.target.value === "*") { math = (a, b) => { return a * b } }
+    if (e.target.value === "/") { math = (a, b) => { return b / a } }
     this.setState(prevState => ({
       display: "0",
       secondDisplay: prevState.display,
-      math: (a, b) => { return a + b },
+      math,
     }))
   }
 
