@@ -50,14 +50,14 @@ class App extends React.Component {
     this.setState(prevState => ({
       display: "0",
       secondDisplay: prevState.display,
-      math: "+",
+      math: (a, b) => { return a + b },
     }))
   }
 
   handleScore = () => {
     if (this.state.math.length > 0) {
       this.setState(prevState => ({
-        display: parseFloat(prevState.display) + parseFloat(prevState.secondDisplay),
+        display: prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)),
         showResult: true,
       }))
     }
