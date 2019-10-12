@@ -1,4 +1,8 @@
 .Button {
+    &:last-child{
+       margin: 0 0 auto auto; 
+       width: 149px;
+    }
     &__btn{
     width: 74px;
     height: 79px;
@@ -6,5 +10,8 @@
     background-color: #fff;
     font-size: 24px;
     cursor: pointer;
+    &--score{
+        width: 149px;
+    }
     }
 }
