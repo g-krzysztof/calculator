@@ -17,9 +17,15 @@ class App extends React.Component {
     let number = e.target.value;
 
     if (this.state.display === "0") {
-      this.setState({
-        display: number
-      })
+      if (number === ".") {
+        this.setState({
+          display: "0."
+        })
+      } else {
+        this.setState({
+          display: number
+        })
+      }
     } else {
       this.setState(prevState => ({
         display: prevState.display + number.toString()
