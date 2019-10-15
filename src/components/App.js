@@ -12,24 +12,35 @@ class App extends React.Component {
   }
 
   handleNumber = (e) => {
+    if (this.state.showResult === false) {
+      // let number = parseFloat(e.target.value);
+      let number = e.target.value;
 
-    // let number = parseFloat(e.target.value);
-    let number = e.target.value;
-
-    if (this.state.display === "0") {
-      if (number === ".") {
-        this.setState({
-          display: "0."
-        })
+      if (this.state.display === "0") {
+        if (number === ".") {
+          this.setState({
+            display: "0."
+          })
+        } else {
+          this.setState({
+            display: number
+          })
+        }
       } else {
-        this.setState({
-          display: number
-        })
+        this.setState(prevState => ({
+          display: prevState.display + number.toString()
+        }))
       }
-    } else {
-      this.setState(prevState => ({
-        display: prevState.display + number.toString()
-      }))
+    }
+
+    if (this.state.showResult === true) {
+      let number = e.target.value;
+      this.setState({
+        display: number,
+        secondDisplay: "",
+        math: "",
+        showResult: false
+      })
     }
   }
 
@@ -82,57 +93,30 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.showResult === false) {
-      return (
-        <div className="App">
-          <Display display={this.state.display} />
-          <div className="buttons-wrapper">
-            <Button class="Button__btn" name="1" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="2" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="3" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="4" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="5" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="6" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="7" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="8" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="9" onClick={this.handleNumber} />
-            <Button class="Button__btn" name="0" onClick={this.handleZero} />
-            <Button class="Button__btn" name="." onClick={this.handleNumber} />
-            <Button class="Button__btn" name="clear" onClick={this.handleClear} />
-            <Button class="Button__btn" name="+" onClick={this.handleMath} />
-            <Button class="Button__btn" name="-" onClick={this.handleMath} />
-            <Button class="Button__btn" name="*" onClick={this.handleMath} />
-            <Button class="Button__btn" name="/" onClick={this.handleMath} />
-            <Button class="Button__btn Button__btn--score" name="=" onClick={this.handleScore} />
-          </div>
+    return (
+      <div className="App">
+        <Display display={this.state.display} />
+        <div className="buttons-wrapper">
+          <Button class="Button__btn" name="1" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="2" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="3" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="4" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="5" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="6" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="7" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="8" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="9" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="0" onClick={this.handleZero} />
+          <Button class="Button__btn" name="." onClick={this.handleNumber} />
+          <Button class="Button__btn" name="clear" onClick={this.handleClear} />
+          <Button class="Button__btn" name="+" onClick={this.handleMath} />
+          <Button class="Button__btn" name="-" onClick={this.handleMath} />
+          <Button class="Button__btn" name="*" onClick={this.handleMath} />
+          <Button class="Button__btn" name="/" onClick={this.handleMath} />
+          <Button class="Button__btn Button__btn--score" name="=" onClick={this.handleScore} />
         </div>
-      );
-    } else {
-      return (
-        <div className="App">
-          <Display display={this.state.display} />
-          <div className="buttons-wrapper">
-            <Button class="Button__btn" name="1" onClick={this.handleClear} />
-            <Button class="Button__btn" name="2" onClick={this.handleClear} />
-            <Button class="Button__btn" name="3" onClick={this.handleClear} />
-            <Button class="Button__btn" name="4" onClick={this.handleClear} />
-            <Button class="Button__btn" name="5" onClick={this.handleClear} />
-            <Button class="Button__btn" name="6" onClick={this.handleClear} />
-            <Button class="Button__btn" name="7" onClick={this.handleClear} />
-            <Button class="Button__btn" name="8" onClick={this.handleClear} />
-            <Button class="Button__btn" name="9" onClick={this.handleClear} />
-            <Button class="Button__btn" name="0" onClick={this.handleClear} />
-            <Button class="Button__btn" name="." onClick={this.handleClear} />
-            <Button class="Button__btn" name="clear" onClick={this.handleClear} />
-            <Button class="Button__btn" name="+" onClick={this.handleClear} />
-            <Button class="Button__btn" name="-" onClick={this.handleClear} />
-            <Button class="Button__btn" name="*" onClick={this.handleClear} />
-            <Button class="Button__btn" name="/" onClick={this.handleClear} />
-            <Button class="Button__btn Button__btn--score" name="=" onClick={this.handleClear} />
-          </div>
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
