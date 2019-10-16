@@ -113,7 +113,7 @@ class App extends React.Component {
     if (e.target.value === "*") { math = (a, b) => { return a * b } }
     if (e.target.value === "/") { math = (a, b) => { return b / a } }
     this.setState(prevState => ({
-      display: "0",
+      display: "",
       secondDisplay: prevState.display,
       math,
       operator,
