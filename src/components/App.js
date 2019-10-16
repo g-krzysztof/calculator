@@ -7,40 +7,55 @@ class App extends React.Component {
   state = {
     display: "0",
     secondDisplay: "",
-    math: "",
-    showResult: false
+    math: 1,
+    time: 1,
+    operator: "",
+    decimal: false
   }
 
   handleNumber = (e) => {
-    if (this.state.showResult === false) {
-      // let number = parseFloat(e.target.value);
+    if (this.state.time === 1 || this.state.time === 2) {
       let number = e.target.value;
-
       if (this.state.display === "0") {
         if (number === ".") {
           this.setState({
-            display: "0."
+            display: "0.",
+            time: 2
           })
         } else {
           this.setState({
-            display: number
+            display: number,
+            time: 2
           })
         }
       } else {
         this.setState(prevState => ({
-          display: prevState.display + number.toString()
+          display: prevState.display + number.toString(),
+          time: 2
         }))
       }
     }
 
-    if (this.state.showResult === true) {
+    if (this.state.time === 3 || this.state.time === 4) {
       let number = e.target.value;
-      this.setState({
-        display: number,
-        secondDisplay: "",
-        math: "",
-        showResult: false
-      })
+      if (this.state.display === "0") {
+        if (number === ".") {
+          this.setState({
+            display: "0.",
+            time: 4
+          })
+        } else {
+          this.setState({
+            display: number,
+            time: 4
+          })
+        }
+      } else {
+        this.setState(prevState => ({
+          display: prevState.display + number.toString(),
+          time: 4
+        }))
+      }
     }
   }
 
@@ -59,13 +74,22 @@ class App extends React.Component {
     this.setState({
       display: "0",
       secondDisplay: "",
-      math: "",
-      showResult: false
+      math: 1,
+      time: 1,
+      operator: "",
+      decimal: false
     })
   };
 
+  round = (n, k) => {
+    var factor = Math.pow(10, k + 1);
+    n = Math.round(Math.round(n * factor) / 10);
+    return n / (factor / 10);
+  }
+
   handleMath = (e) => {
     let math;
+    let operator = e.target.value;
     if (e.target.value === "+") { math = (a, b) => { return a + b } }
     if (e.target.value === "-") { math = (a, b) => { return b - a } }
     if (e.target.value === "*") { math = (a, b) => { return a * b } }
@@ -74,20 +98,16 @@ class App extends React.Component {
       display: "0",
       secondDisplay: prevState.display,
       math,
+      operator,
+      time: 3
     }))
-  }
-
-  round = (n, k) => {
-    var factor = Math.pow(10, k + 1);
-    n = Math.round(Math.round(n * factor) / 10);
-    return n / (factor / 10);
   }
 
   handleScore = () => {
     if (this.state.math.length > 0) {
       this.setState(prevState => ({
         display: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
-        showResult: true,
+        time: 5
       }))
     }
   }
@@ -95,7 +115,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Display display={this.state.display} />
+        <Display display={this.state.display} math={this.state.math} secondDisplay={this.state.secondDisplay} operator={this.state.operator} time={this.state.time} />
         <div className="buttons-wrapper">
           <Button class="Button__btn" name="1" onClick={this.handleNumber} />
           <Button class="Button__btn" name="2" onClick={this.handleNumber} />
