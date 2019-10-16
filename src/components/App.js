@@ -206,6 +206,38 @@ class App extends React.Component {
     }
   }
 
+  handleKeyDown = (event) => {
+    let { key } = event;
+    if (key === "1") { this.handleNumber({ target: { value: "1" } }); }
+    if (key === "2") { this.handleNumber({ target: { value: "2" } }); }
+    if (key === "3") { this.handleNumber({ target: { value: "3" } }); }
+    if (key === "4") { this.handleNumber({ target: { value: "4" } }); }
+    if (key === "5") { this.handleNumber({ target: { value: "5" } }); }
+    if (key === "6") { this.handleNumber({ target: { value: "6" } }); }
+    if (key === "7") { this.handleNumber({ target: { value: "7" } }); }
+    if (key === "8") { this.handleNumber({ target: { value: "8" } }); }
+    if (key === "9") { this.handleNumber({ target: { value: "9" } }); }
+    if (key === "0") { this.handleZero({ target: { value: "0" } }); }
+    if (key === ",") { this.handleDecimal({ target: { value: "." } }); }
+    if (key === ".") { this.handleMath({ target: { value: "." } }); }
+    if (key === "+") { this.handleMath({ target: { value: "+" } }); }
+    if (key === "-") { this.handleMath({ target: { value: "-" } }); }
+    if (key === "*") { this.handleMath({ target: { value: "*" } }); }
+    if (key === "/") { this.handleMath({ target: { value: "/" } }); }
+    if (key === "*") { this.handleMath({ target: { value: "*" } }); }
+    if (key === "=") { this.handleScore({ target: { value: "=" } }); }
+    if (key === "Enter") { this.handleScore({ target: { value: "=" } }); }
+    if (key === "c") { this.handleClear(); }
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown)
+  }
+
   render() {
     return (
       <div className="App">
