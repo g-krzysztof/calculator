@@ -101,13 +101,25 @@ class App extends React.Component {
   }
 
   handleZero = (e) => {
-    if (this.state.time !== 5) {
+    if (this.state.time === 1 || this.state.time === 2) {
       let number = parseFloat(e.target.value);
       if (this.state.display === "0" || this.state.display === 0) {
         return
       } else {
         this.setState(prevState => ({
-          display: prevState.display + number.toString()
+          display: prevState.display + number.toString(),
+          time: 2
+        }))
+      }
+    }
+    if (this.state.time === 3 || this.state.time === 4) {
+      let number = parseFloat(e.target.value);
+      if (this.state.display === "0" || this.state.display === 0) {
+        return
+      } else {
+        this.setState(prevState => ({
+          display: prevState.display + number.toString(),
+          time: 4
         }))
       }
     }
