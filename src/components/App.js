@@ -117,7 +117,8 @@ class App extends React.Component {
       secondDisplay: prevState.display,
       math,
       operator,
-      time: 3
+      time: 3,
+      decimal: false
     }))
   }
 
