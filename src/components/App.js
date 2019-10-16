@@ -243,9 +243,9 @@ class App extends React.Component {
       <div className="App">
         <Display display={this.state.display} math={this.state.math} secondDisplay={this.state.secondDisplay} operator={this.state.operator} time={this.state.time} />
         <div className="buttons-wrapper">
-          <Button class="Button__btn" name="1" onClick={this.handleNumber} />
-          <Button class="Button__btn" name="2" onClick={this.handleNumber} />
-          <Button class="Button__btn" name="3" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="7" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="8" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="9" onClick={this.handleNumber} />
           <Button class="Button__btn" name="clear" onClick={this.handleClear} />
           {/* <Button class="Button__btn Button__btn--empty" name="." /> */}
           <Button class="Button__btn Button__btn--math" name="+" onClick={this.handleMath} />
@@ -256,9 +256,9 @@ class App extends React.Component {
           <Button class="Button__btn" name="." onClick={this.handleDecimal} />
           <Button class="Button__btn Button__btn--math" name="*" onClick={this.handleMath} />
           <Button class="Button__btn Button__btn--math" name="/" onClick={this.handleMath} />
-          <Button class="Button__btn" name="7" onClick={this.handleNumber} />
-          <Button class="Button__btn" name="8" onClick={this.handleNumber} />
-          <Button class="Button__btn" name="9" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="1" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="2" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="3" onClick={this.handleNumber} />
           <Button class="Button__btn" name="0" onClick={this.handleZero} />
           <Button class="Button__btn Button__btn--score" name="=" onClick={this.handleScore} />
         </div>
