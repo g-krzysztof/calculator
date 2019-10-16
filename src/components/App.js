@@ -214,19 +214,20 @@ class App extends React.Component {
           <Button class="Button__btn" name="1" onClick={this.handleNumber} />
           <Button class="Button__btn" name="2" onClick={this.handleNumber} />
           <Button class="Button__btn" name="3" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="clear" onClick={this.handleClear} />
+          {/* <Button class="Button__btn Button__btn--empty" name="." /> */}
+          <Button class="Button__btn Button__btn--math" name="+" onClick={this.handleMath} />
+          <Button class="Button__btn Button__btn--math" name="-" onClick={this.handleMath} />
           <Button class="Button__btn" name="4" onClick={this.handleNumber} />
           <Button class="Button__btn" name="5" onClick={this.handleNumber} />
           <Button class="Button__btn" name="6" onClick={this.handleNumber} />
+          <Button class="Button__btn" name="." onClick={this.handleDecimal} />
+          <Button class="Button__btn Button__btn--math" name="*" onClick={this.handleMath} />
+          <Button class="Button__btn Button__btn--math" name="/" onClick={this.handleMath} />
           <Button class="Button__btn" name="7" onClick={this.handleNumber} />
           <Button class="Button__btn" name="8" onClick={this.handleNumber} />
           <Button class="Button__btn" name="9" onClick={this.handleNumber} />
           <Button class="Button__btn" name="0" onClick={this.handleZero} />
-          <Button class="Button__btn" name="." onClick={this.handleDecimal} />
-          <Button class="Button__btn" name="clear" onClick={this.handleClear} />
-          <Button class="Button__btn" name="+" onClick={this.handleMath} />
-          <Button class="Button__btn" name="-" onClick={this.handleMath} />
-          <Button class="Button__btn" name="*" onClick={this.handleMath} />
-          <Button class="Button__btn" name="/" onClick={this.handleMath} />
           <Button class="Button__btn Button__btn--score" name="=" onClick={this.handleScore} />
         </div>
       </div>

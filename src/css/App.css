@@ -1,13 +1,13 @@
 .App {
   background-color: #ccc;
-  width: 301px;
-  height: 481px;
+  width: 451px;
+  height: 321px;
   border: 1px solid #aaa;
   margin: 100px auto 0 auto;
 }
 
 .buttons-wrapper {
-  height: 399px;
+  height: 239px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
