@@ -171,7 +171,7 @@ class App extends React.Component {
     if (e.target.value === "*") { math = (a, b) => { return a * b } }
     if (e.target.value === "/") { math = (a, b) => { return b / a } }
 
-    if (e.target.value === "=") {
+    if (e.target.value === "=" && this.state.time === 4) {
 
       if (this.state.math.length > 0) {
         this.setState(prevState => ({
@@ -182,7 +182,7 @@ class App extends React.Component {
         }))
       }
     } else {
-      if (this.state.math.length > 0) {
+      if (this.state.math.length > 0 && e.target.value !== "=") {
         this.setState(prevState => ({
           secondDisplay: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
           time: 3,
