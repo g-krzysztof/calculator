@@ -1,5 +1,4 @@
 .Button:last-child {
-  margin: 0 0 auto auto;
   width: 149px;
 }
 
@@ -10,9 +9,23 @@
   background-color: #fff;
   font-size: 24px;
   cursor: pointer;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .Button__btn--score {
   width: 149px;
+  background-color: #d4ebaa;
+}
+
+.Button__btn--math {
+  background-color: #fff2d0;
+}
+
+.Button__btn:hover {
+  background-color: #ffbb00;
+  -webkit-box-shadow: 0px 0px 1px black;
+          box-shadow: 0px 0px 1px black;
 }
 /*# sourceMappingURL=Button.css.map */

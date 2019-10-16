@@ -1,6 +1,5 @@
 .Button {
     &:last-child{
-       margin: 0 0 auto auto; 
        width: 149px;
     }
     &__btn{
@@ -10,8 +9,18 @@
     background-color: #fff;
     font-size: 24px;
     cursor: pointer;
+    outline: none;
+    transition: .2s;
     &--score{
         width: 149px;
+        background-color: rgb(212, 235, 170);
+    }
+    &--math{
+        background-color: rgb(255, 242, 208);
+    }
+    &:hover{
+        background-color: rgb(255, 187, 0);
+        box-shadow: 0px 0px 1px black;
     }
     }
 }
