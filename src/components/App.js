@@ -157,16 +157,40 @@ class App extends React.Component {
         decimal: false
       }))
     }
+    if (this.state.time === 4) {
+      this.handleScore(e);
+    }
   }
 
-  handleScore = () => {
-    if (this.state.math.length > 0) {
-      this.setState(prevState => ({
-        display: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
-        time: 5,
-        math: 1,
-        operator: ""
-      }))
+  handleScore = (e) => {
+
+    let math;
+    let operator = e.target.value;
+    if (e.target.value === "+") { math = (a, b) => { return a + b } }
+    if (e.target.value === "-") { math = (a, b) => { return b - a } }
+    if (e.target.value === "*") { math = (a, b) => { return a * b } }
+    if (e.target.value === "/") { math = (a, b) => { return b / a } }
+
+    if (e.target.value === "=") {
+
+      if (this.state.math.length > 0) {
+        this.setState(prevState => ({
+          display: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
+          time: 5,
+          math: 1,
+          operator: ""
+        }))
+      }
+    } else {
+      if (this.state.math.length > 0) {
+        this.setState(prevState => ({
+          secondDisplay: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
+          time: 3,
+          math: math,
+          operator: operator,
+          display: ""
+        }))
+      }
     }
   }
 
