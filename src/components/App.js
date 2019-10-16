@@ -14,6 +14,19 @@ class App extends React.Component {
   }
 
   handleNumber = (e) => {
+
+    if (this.state.time === 5) {
+      let number = e.target.value;
+      this.setState({
+        display: number,
+        secondDisplay: "",
+        math: 1,
+        time: 2,
+        operator: "",
+        decimal: false
+      })
+    }
+
     if (this.state.time === 1 || this.state.time === 2) {
       let number = e.target.value;
       if (this.state.display === "0") {
@@ -75,16 +88,38 @@ class App extends React.Component {
         decimal: true
       }))
     }
+    if (this.state.time === 5) {
+      this.setState({
+        display: "0.",
+        secondDisplay: "",
+        math: 1,
+        time: 2,
+        operator: "",
+        decimal: true
+      })
+    }
   }
 
   handleZero = (e) => {
-    let number = parseFloat(e.target.value);
-    if (this.state.display === "0" || this.state.display === 0) {
-      return
-    } else {
-      this.setState(prevState => ({
-        display: prevState.display + number.toString()
-      }))
+    if (this.state.time !== 5) {
+      let number = parseFloat(e.target.value);
+      if (this.state.display === "0" || this.state.display === 0) {
+        return
+      } else {
+        this.setState(prevState => ({
+          display: prevState.display + number.toString()
+        }))
+      }
+    }
+    if (this.state.time === 5) {
+      this.setState({
+        display: "0",
+        secondDisplay: "",
+        math: 1,
+        time: 2,
+        operator: "",
+        decimal: false
+      })
     }
   }
 
@@ -106,27 +141,31 @@ class App extends React.Component {
   }
 
   handleMath = (e) => {
-    let math;
-    let operator = e.target.value;
-    if (e.target.value === "+") { math = (a, b) => { return a + b } }
-    if (e.target.value === "-") { math = (a, b) => { return b - a } }
-    if (e.target.value === "*") { math = (a, b) => { return a * b } }
-    if (e.target.value === "/") { math = (a, b) => { return b / a } }
-    this.setState(prevState => ({
-      display: "",
-      secondDisplay: prevState.display,
-      math,
-      operator,
-      time: 3,
-      decimal: false
-    }))
+    if (this.state.math === 1) {
+      let math;
+      let operator = e.target.value;
+      if (e.target.value === "+") { math = (a, b) => { return a + b } }
+      if (e.target.value === "-") { math = (a, b) => { return b - a } }
+      if (e.target.value === "*") { math = (a, b) => { return a * b } }
+      if (e.target.value === "/") { math = (a, b) => { return b / a } }
+      this.setState(prevState => ({
+        display: "",
+        secondDisplay: prevState.display,
+        math,
+        operator,
+        time: 3,
+        decimal: false
+      }))
+    }
   }
 
   handleScore = () => {
     if (this.state.math.length > 0) {
       this.setState(prevState => ({
         display: this.round(prevState.math(parseFloat(prevState.display), parseFloat(prevState.secondDisplay)), 5),
-        time: 5
+        time: 5,
+        math: 1,
+        operator: ""
       }))
     }
   }
