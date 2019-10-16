@@ -17,17 +17,10 @@ class App extends React.Component {
     if (this.state.time === 1 || this.state.time === 2) {
       let number = e.target.value;
       if (this.state.display === "0") {
-        if (number === ".") {
-          this.setState({
-            display: "0.",
-            time: 2
-          })
-        } else {
-          this.setState({
-            display: number,
-            time: 2
-          })
-        }
+        this.setState({
+          display: number,
+          time: 2
+        })
       } else {
         this.setState(prevState => ({
           display: prevState.display + number.toString(),
@@ -39,23 +32,48 @@ class App extends React.Component {
     if (this.state.time === 3 || this.state.time === 4) {
       let number = e.target.value;
       if (this.state.display === "0") {
-        if (number === ".") {
-          this.setState({
-            display: "0.",
-            time: 4
-          })
-        } else {
-          this.setState({
-            display: number,
-            time: 4
-          })
-        }
+        this.setState({
+          display: number,
+          time: 4
+        })
       } else {
         this.setState(prevState => ({
           display: prevState.display + number.toString(),
           time: 4
         }))
       }
+    }
+  }
+
+  handleDecimal = (e) => {
+    let number = e.target.value;
+    if (this.state.time === 1) {
+      this.setState({
+        display: "0.",
+        time: 2,
+        decimal: true
+      })
+    }
+    if (this.state.time === 3) {
+      this.setState({
+        display: "0.",
+        time: 4,
+        decimal: true
+      })
+    }
+    if (this.state.time === 2 && this.state.decimal === false) {
+      this.setState(prevState => ({
+        display: prevState.display + number.toString(),
+        time: 2,
+        decimal: true
+      }))
+    }
+    if (this.state.time === 4 && this.state.decimal === false) {
+      this.setState(prevState => ({
+        display: prevState.display + number.toString(),
+        time: 4,
+        decimal: true
+      }))
     }
   }
 
@@ -127,7 +145,7 @@ class App extends React.Component {
           <Button class="Button__btn" name="8" onClick={this.handleNumber} />
           <Button class="Button__btn" name="9" onClick={this.handleNumber} />
           <Button class="Button__btn" name="0" onClick={this.handleZero} />
-          <Button class="Button__btn" name="." onClick={this.handleNumber} />
+          <Button class="Button__btn" name="." onClick={this.handleDecimal} />
           <Button class="Button__btn" name="clear" onClick={this.handleClear} />
           <Button class="Button__btn" name="+" onClick={this.handleMath} />
           <Button class="Button__btn" name="-" onClick={this.handleMath} />
